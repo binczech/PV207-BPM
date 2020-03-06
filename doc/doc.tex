@@ -1,0 +1,367 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[left=2cm,text={17cm,24cm},top=3cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{amsfonts}
+\usepackage{breakurl}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{supertabular}
+\usepackage[titles]{tocloft}
+
+\def\UrlBreaks{\do\/\do-} % URL breaking characters
+
+\newcommand{\red}[1]{\textcolor{red}{#1}} % \red{text in red}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}} % \blue{text in blue}
+\newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}} % red bold TODO
+\newcommand{\tilda}{\raisebox{0.5ex}{\texttildelow}} % command \tilda for '~' character
+
+\renewcommand{\cftdot}{}
+
+\setlength\parindent{0pt} % do NOT indent
+\graphicspath{{img/}} % path to images
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\begin{document}
+
+\begin{titlepage}
+
+    \begin{center}
+        % FIX: lines must end with '%', if not then it will result in an incorrect centering
+        \vfill {%
+            \Huge{%
+                \textsc{%
+                    Fakulta informatiky\\[3mm]%
+                    Masarykova univerzita%
+                }%
+            }%
+        }%
+
+        \hfill\\[15mm]
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[scale=2]{muni-lg-cmyk.pdf}
+        \end{figure}
+
+        \hfill\\[10mm]
+
+        \Huge{
+            \textbf{
+                Process analysis
+            }
+        }
+
+        \hfill\\[-10mm]
+
+        \huge{
+            \textbf{
+                Týmový projekt pro PV207
+            }
+        }
+
+        \hfill\\[10mm]
+
+        \LARGE{
+            \textbf{
+                [Doména] - FoodPack
+            }
+        }
+        \vfill
+
+    \end{center}
+
+        \Large{
+            \textbf{Tým:}\\Tadeáš Pavlík (Teamleader),\\Jiří Čechák (Business analyst),\\Tomáš Došlík (Process analyst),\\Václav Stehlík (BPM/SOA developer)\hfill \today
+        }
+
+\end{titlepage}
+
+\setlength{\parskip}{0pt}
+    \hypersetup{hidelinks}\tableofcontents
+\setlength{\parskip}{0pt}
+
+\newpage
+
+\section{Přehled organizace}
+
+\subsection{Vize}
+
+[Vložte vizi zde]
+
+\subsection{Mise}
+
+[Vložte misi zde]
+
+\subsection{Cíle a objektivy}
+\begin{itemize}
+    \item Cíl: Poskytnout a distribuovat balíčky čerstvých surovin pro domácí přípravu našich receptů.
+    \begin{itemize}
+        \item Objektiv: Vytvořit a vyvinout každý měsíc alespoň 3 top recepty měsíce.
+        \item Objektiv: Zajistit efektivní a časově přesný rozvoz.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Ukazatele měření}
+
+\begin{itemize}
+    \item Objektiv: Vytvořit a vyvinout každý měsíc alespoň 3 top recepty měsíce.
+    \begin{itemize}
+        \item KPI: Denní počet shlédnutí, prokliků, objednávek.
+        \item KRI: Celkový počet objednávek za první dva měsíce.
+    \end{itemize}
+    \item Objektiv: Zajistit efektivní a časově přesný rozvoz.
+    \begin{itemize}
+        \item KPI: Rychlost reakce na objednávku.
+        \item KRI: Úspěšné ku neúspěšných rozvozům za měsíc.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Struktura organizace}
+\subsubsection{Role a odpovědnosti}
+
+[text]
+
+\subsubsection{Oddělení}
+
+[text]
+
+\section{Procesy}
+
+\begin{itemize}
+    \item Najít zkušeného kuchaře. (Vytvořit a vyvinout každý měsíc alespoň 3 top recepty měsíce.)
+    \item Přidat nový recept. (Vytvořit a vyvinout každý měsíc alespoň 3 top recepty měsíce.)
+    \item Příprava materiálů k receptům (fotky, ...). (Vytvořit a vyvinout každý měsíc alespoň 3 top recepty měsíce.)
+    \item Plánování tras. (Zajistit efektivní a časově přesný rozvoz.)
+\end{itemize}
+
+\subsection{Proces \uv{Najít zkušeného kuchaře.}}
+
+\paragraph{Popis}
+
+[text]
+
+\paragraph{Indikátory}
+
+\begin{itemize}
+    \item název indikátoru
+    \begin{itemize}
+        \item units [formula]
+        \item desired value [minimal value]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Role}
+
+\begin{itemize}
+    \item název role
+    \begin{itemize}
+        \item popis
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Datové objekty}
+
+\begin{itemize}
+    \item název datového objektu
+    \begin{itemize}
+        \item popis [states]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Diagram}
+
+[zde bude BPMN diagram]
+
+\subsection{Proces \uv{Přidat nový recept.}}
+
+\paragraph{Popis}
+
+[text]
+
+\paragraph{Indikátory}
+
+\begin{itemize}
+    \item název indikátoru
+    \begin{itemize}
+        \item units [formula]
+        \item desired value [minimal value]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Role}
+
+\begin{itemize}
+    \item název role
+    \begin{itemize}
+        \item popis
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Datové objekty}
+
+\begin{itemize}
+    \item název datového objektu
+    \begin{itemize}
+        \item popis [states]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Diagram}
+
+[zde bude BPMN diagram]
+
+\subsection{Proces \uv{Příprava materiálů k receptům (fotky, ...).}}
+
+\paragraph{Popis}
+
+[text]
+
+\paragraph{Indikátory}
+
+\begin{itemize}
+    \item název indikátoru
+    \begin{itemize}
+        \item units [formula]
+        \item desired value [minimal value]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Role}
+
+\begin{itemize}
+    \item název role
+    \begin{itemize}
+        \item popis
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Datové objekty}
+
+\begin{itemize}
+    \item název datového objektu
+    \begin{itemize}
+        \item popis [states]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Diagram}
+
+[zde bude BPMN diagram]
+
+\subsection{Proces \uv{Plánování tras.}}
+
+\paragraph{Popis}
+
+[text]
+
+\paragraph{Indikátory}
+
+\begin{itemize}
+    \item název indikátoru
+    \begin{itemize}
+        \item units [formula]
+        \item desired value [minimal value]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Role}
+
+\begin{itemize}
+    \item název role
+    \begin{itemize}
+        \item popis
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Datové objekty}
+
+\begin{itemize}
+    \item název datového objektu
+    \begin{itemize}
+        \item popis [states]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Diagram}
+
+[zde bude BPMN diagram]
+
+\section{Implementace}
+
+[text]
+
+\subsection{Použitá platforma a software}
+
+[text]
+
+\subsection{Implementované služby}
+
+[text]
+
+\begin{enumerate}
+    \item název služby
+    \begin{itemize}
+        \item text
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Implementované procesy}
+
+\begin{enumerate}
+    \item název procesu
+    \begin{itemize}
+        \item text
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Screenshoty}
+
+[3-5 důležitých snímků z testování implementace]
+
+\section{Týmová práce a úkoly}
+
+\subsection{Tadeáš Pavlík (Teamleader)}
+
+\begin{itemize}
+    \item úkol 1
+\end{itemize}
+
+\subsection{Jiří Čechák (Business analyst)}
+
+\begin{itemize}
+    \item úkol 1
+\end{itemize}
+
+\subsection{Tomáš Došlík (Process analyst)}
+
+\begin{itemize}
+    \item úkol 1
+\end{itemize}
+
+\subsection{Václav Stehlík (BPM/SOA developer)}
+
+\begin{itemize}
+    \item úkol 1
+\end{itemize}
+
+\end{document}
