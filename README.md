@@ -1,14 +1,14 @@
-# PV207 - týmový projekt
+# PV207 - team project
 
-## O projektu
+## About
 
-Týmový projekt byl vypracován pro předmět [PV207](https://is.muni.cz/predmet/fi/jaro2020/PV207) v semestru jaro 2020. V rámci projektu bylo úkolem v týmu čtyř lidí vymyslet firmu, pro kterou bylo nutné provézt analýzu domény, analýzu procesů a na základě těchto analýz implementovat procesy, služby a naše řešení otestovat. K tomuto byl použit nástroj [jBPM](https://www.jbpm.org/). Práce na projektu byla zdokumentována v dokumentaci.
+The team project was developed for the course [PV207](https://is.muni.cz/predmet/fi/jaro2020/PV207?lang=en) in the spring 2020 semester. Within the project, the task of a team of four people was to invent a company for which it was necessary to perform domain analysis, analysis and process design. And on the basis of these analyzes and design implement processes, services and test the solution. Used tools: [jBPM](https://www.jbpm.org/), [Signavio](https://www.signavio.com/). Work on the project was documented in the documentation.
 
-## Obsah
+## Contents
 
-[Dokumentace](/doc/doc.pdf)
+* [Documentation](/doc/doc.pdf) - Vision, Mission, description, goals, objectives, design of processes, description and screenshots for implementation
 
-## Tým
+## Team
 * **Teamleader**: Tadeáš Pavlík ([487555](https://is.muni.cz/auth/osoba/487555)) - [binczech](https://github.com/binczech)
 * **Business analyst**: Jiří Čechák ([445717](https://is.muni.cz/auth/osoba/445717)) - [jirkacechak](https://github.com/jirkacechak)
 * **Process analyst**: Tomáš Došlík ([445489](https://is.muni.cz/auth/osoba/445489)) - [xdosli00](https://github.com/xdosli00)
