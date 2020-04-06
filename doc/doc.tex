@@ -26,6 +26,9 @@
 \usepackage{indentfirst}
 \usepackage{supertabular}
 \usepackage[titles]{tocloft}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage[final]{pdfpages}
 
 \def\UrlBreaks{\do\/\do-} % URL breaking characters
 
@@ -167,8 +170,8 @@ Our mission is to create and provide healthy food recipes to all people who want
     \end{itemize}
     \item Objective: Explore local market of suppliers and identify their offer of ingredients.
     \begin{itemize}
-        \item KPI: 
-        \item KRI: 
+        \item KPI: Negotiated offers from suppliers.
+        \item KRI: Total successfully closed agreements with negotiated suppliers
     \end{itemize}
     \item Objective: Verify the suitability and safety of ingredients offered from suppliers.
     \begin{itemize}
@@ -231,9 +234,9 @@ Our mission is to create and provide healthy food recipes to all people who want
     \item \textbf{Marketing department} - Presents the company to the world, creates and manages marketing campaigns and creates customer reach.
     \item \textbf{Market research department} - Provides user feedback, trend analysis and estimates demand.
     \item \textbf{Logistic department} - Responsible for planning of routes, assigning routes to drivers and distribution centers, delivering of packages.
-    \item \textbf{Human Resources Department} - Finding and recruiting job applicants, and administering employee-benefit programs. Manages benefits, recruitment and firing of employees.
+    \item \textbf{Human Resources department} - Finding and recruiting job applicants, and administering employee-benefit programs. Manages benefits, recruitment and firing of employees.
     \item \textbf{IT department} - Manages web, database, online shop and blogs and is in charge of company security, solves issues and errors concerning IT in company.
-    \item \textbf{Packaging Department} - Responsible for preparing packages, maintaining the ingredients and contents of warehouse, negotiation with suppliers.
+    \item \textbf{Packaging department} - Responsible for preparing packages, maintaining the ingredients and contents of warehouse, negotiation with suppliers.
     \item \textbf{Procurement} - Acquiring goods and services from an external sources.
 \end{itemize}
 
@@ -251,157 +254,77 @@ Our mission is to create and provide healthy food recipes to all people who want
     \item Create statistics report for CEO and management. (Objective: Ensure efficient and timely delivery.)
 \end{itemize}
 
-\subsection{Process "Find experienced chef"}
-
-\paragraph{Description}
-
-[text]
-
-\paragraph{Indicators}
-
-\begin{itemize}
-    \item Indicator name
-    \begin{itemize}
-        \item units [formula]
-        \item desired value [minimal value]
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Roles}
-
-\begin{itemize}
-    \item Role name
-    \begin{itemize}
-        \item Description
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Data objects}
-
-\begin{itemize}
-    \item Data object name
-    \begin{itemize}
-        \item Description [states]
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Diagram}
-
-[BPMN diagram]
-
-\subsection{Process "Create a new recipe"}
-
-\paragraph{Description}
-
-[text]
-
-\paragraph{Indicators}
-
-\begin{itemize}
-    \item Indicator name
-    \begin{itemize}
-        \item units [formula]
-        \item desired value [minimal value]
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Roles}
-
-\begin{itemize}
-    \item Role name
-    \begin{itemize}
-        \item Description
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Data objects}
-
-\begin{itemize}
-    \item Data object name
-    \begin{itemize}
-        \item Description [states]
-    \end{itemize}
-\end{itemize}
-
-\paragraph{Diagram}
-
-[BPMN diagram]
+\newpage
 
 \subsection{Process "Preparation of recipe materials"}
 
 \paragraph{Description}
 
-[text]
+This process is situated after Research \& Development with help of chef creates a recipe. It is needed to edit the recipe, add more description to it and create photos for the recipe. In the end all these parts will make it up to materials for recipe. After that recipe will be published if we already have needed ingredients. If not recipe will be stored without publishing and Research \& Development will be notified for which recipe materials we are missing ingredients so that the ingredients could be achieved.
 
 \paragraph{Indicators}
 
 \begin{itemize}
-    \item Indicator name
-    \begin{itemize}
-        \item units [formula]
-        \item desired value [minimal value]
-    \end{itemize}
+    \item \textbf{KPI}: Daily counts of views, clicks, orders. (At least 500 views, 150 clicks, 50 orders)
+    \item \textbf{KRI}: Total number of orders in the first two months. (At least 3000 orders)
 \end{itemize}
 
 \paragraph{Roles}
 
 \begin{itemize}
-    \item Role name
-    \begin{itemize}
-        \item Description
-    \end{itemize}
+    \item \textbf{Editor} - Performs correction of recipe received from Research \& Development, creates description for it, send final text to system.
+    \item \textbf{System} - Requests materials from Editor and Photographer, stores them into store, publishes recipe if ingredients are available, notices Research \& Development if not.
+    \item \textbf{Photographer} - Request and receives prepared meal from Chef, takes photo it, edits photos and sends final photos to system.
+    \item \textbf{Chef} - Receives request for preparation of a meal, serves prepared meal to photographer.
+    \item \textbf{Research \& Development} - Requests materials for recipe and receives notification if final recipe can not be published.
 \end{itemize}
 
 \paragraph{Data objects}
 
 \begin{itemize}
-    \item Data object name
-    \begin{itemize}
-        \item Description [states]
-    \end{itemize}
+    \item \textbf{Recipe store} - Storage for created and finalized recipes.
+    \item \textbf{Ingredient store} - Storage for information about available ingredients.
 \end{itemize}
 
-\paragraph{Diagram}
+\newpage
 
-[BPMN diagram]
+\includepdf[landscape=true]{Preparation of recipe materials.pdf}
 
-\subsection{Process "Route planning"}
+\subsection{Process "Find suppliers within a particular distribution center location"}
 
 \paragraph{Description}
 
-[text]
+This process is situated after manager of distribution center requests for searching suppliers. It is needed to look at which ingredients are requested for recipes. Then some worker has to check warehouse of distribution center which ingredients are missing a ask system to find suppliers for them. System will find supplier by using external searching module. If its response is too long then it's not working and we can't find any suppliers. Otherwise list of suitable suppliers will be received. The worker will have to negotiate with suppliers and then decide if negotiated prices are good for the company. After that manager is informed about negotiated suppliers if there are some. Otherwise he will be informed about reasons of failure.
 
 \paragraph{Indicators}
 
 \begin{itemize}
-    \item Indicator name
-    \begin{itemize}
-        \item units [formula]
-        \item desired value [minimal value]
-    \end{itemize}
+    \item \textbf{KPI}: Negotiated offers from suppliers. (At least 1 per day)
+    \item \textbf{KRI}: Total successfully closed agreements with negotiated suppliers. (At least 10 per month)
 \end{itemize}
 
 \paragraph{Roles}
 
 \begin{itemize}
-    \item Role name
-    \begin{itemize}
-        \item Description
-    \end{itemize}
+    \item \textbf{Warehouse Worker} - Looks after warehouse and items in it, says what is missing to system, negotiates with suppliers and decides which prices are acceptable.
+    \item \textbf{System} - Works with storage, checks for ingredients, communicates with searching module, generates report for manager.
+    \item \textbf{Distribution Center Manager} - Starts process by request for searching of suppliers and gets notified about result.
+    \item \textbf{IT department} - Gets notified if there are issues with store.
+    \item \textbf{Searching module} - Searches for nearby suppliers based on criteria formulated by Warehouse Worker, provides suppliers suiting criteria to system.
+    \item \textbf{Supplier} - Negotiates with Warehouse Worker about prices of ingredients.
+    
 \end{itemize}
 
 \paragraph{Data objects}
 
 \begin{itemize}
-    \item Data object name
-    \begin{itemize}
-        \item Description [states]
-    \end{itemize}
+    \item \textbf{Store} - Storage for ingredients and recipes.
+    \item \textbf{Supplier store} - Storage for suppliers who negotiated with Warehouse Worker.
 \end{itemize}
 
-\paragraph{Diagram}
+\newpage
 
-[BPMN diagram]
+\includepdf[landscape=true]{Find suppliers within a particular distribution center location.pdf}
 
 \section{Implementation}
 
