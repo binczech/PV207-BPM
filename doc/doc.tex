@@ -236,6 +236,8 @@ Our mission is to create and provide healthy food recipes to all people who want
     \item \textbf{Distribution Center Manager} - Makes sure shipped orders are delivered in the most effective way possible.
     \item \textbf{Procurement Officer} - Orders goods from external suppliers so that the warehouses are always stocked.
     \item \textbf{Order Manager} - Overlooks and is responsible for the order processing.
+    \item \textbf{Support Worker} - Maintains and analyses issues reported by customers, communicates with customers, handles issues.
+    \item \textbf{Support Manager} - Gives advise to Support worker, handles issues if worker can't.
 \end{itemize}
 
 \subsubsection{Departments}
@@ -247,7 +249,7 @@ Our mission is to create and provide healthy food recipes to all people who want
     \item \textbf{Market research department} - Provides user feedback, trend analysis and estimates demand.
     \item \textbf{Logistic department} - Responsible for planning of routes, assigning routes to drivers and distribution centers, delivering of packages.
     \item \textbf{Human Resources department} - Finding and recruiting job applicants, and administering employee-benefit programs. Manages benefits, recruitment and firing of employees.
-    \item \textbf{IT department} - Manages web, database, online shop and blogs and is in charge of company security, solves issues and errors concerning IT in company.
+    \item \textbf{IT department} - Manages web, database, online shop and blogs and is in charge of company security, solves issues and errors concerning IT in company or customers.
     \item \textbf{Packaging department} - Responsible for preparing packages, maintaining the ingredients and contents of warehouse, negotiation with suppliers.
     \item \textbf{Procurement} - Acquiring goods and services from an external sources.
 \end{itemize}
@@ -454,6 +456,78 @@ CEO can request statistical report from all managers. System provides statistica
 \newpage
 
 \includepdf[landscape=true]{Create statistical report for CEO.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Process "Create new recipe"}
+
+\paragraph{Description}
+The process is expected to run several times at the beginning of every week in order to produce new recipes. The created recipe serves as a base for a following process, \emph{Preparation of recipe materials}.
+
+\medskip
+
+Initially, the \textbf{marketing department} examines user feedback and creates a trend analysis from current and upcoming trends. Afterwards, the \textbf{R\&D department} proposes recipe ideas until a suitable candidate is agreed upon. The chosen idea is handed over to an experienced \textbf{chef} who composes a recipe prototype. The prototype is saved for future use, regardless of the eventual approval or abandonment of the recipe. Feasibility check, consisting of price estimation and recipe execution testing, is performed. Assuming the feasibility result is positive, the recipe is approved. In the scenario of negative result, an abandonment report is generated. In the end, the \textbf{information system} is notified with the approved recipe or abandonment report.
+
+\paragraph{Indicators}
+
+\begin{itemize}
+    \item \textbf{KPI}: Time to develop a recipe. (Less than a week)
+    \item \textbf{KRI}: Total number of developed recipes per month. (At least 6)
+\end{itemize}
+
+\paragraph{Roles}
+
+\begin{itemize}
+    \item \textbf{Marketing} - Performs trend analysis and retrieves user feedback.
+    \item \textbf{Research \& Development} - Comes up with recipe ideas, performs recipe feasibility testing, approves recipes, rejects recipes.
+    \item \textbf{Chef} - Supplies recipe prototype from provided recipe ideas.
+    \item \textbf{System} - Receives information whether the recipe was approved or rejected.
+\end{itemize}
+
+\paragraph{Data objects}
+
+\begin{itemize}
+    \item \textbf{Recipe store} - All recipes (approves or rejected) are stored for future reference, evaluation or reusing purposes.
+    \item \textbf{User feedback} - User feedback and wishes towards recipes and food content are considered during proposing of new recipe ideas. Supplied by marketing department.
+    \item \textbf{Recipe store} - Current trends and estimation of future trends are considered during proposing of new recipe ideas. Supplied by marketing department.
+\end{itemize}
+
+\newpage
+
+\includepdf[landscape=true]{create_new_recipe.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Process "Customer support"}
+
+\paragraph{Description}
+Customer support handles and resolves complaints and problems users encounter. The communication and notification may be in form of e-mail exchange, chat messaging or voice/phone call. Initially, system acknowledges new ticket, creates an issue and checks whether the ticket is not disingenuous. Afterwards, support worker reviews the problem, communicates with the customer, evaluates possible solutions and if possible handles the issue and informs the customer about the result of the issue. Support manager may step in if support worker requires help or any form of advice. Furthermore, in cases where higher authority is required, support manager may take the handling of the issue on himself/herself. The resolution process may find no feasible solution to the problem. In such case, additional attention to the reasoning and final response has to be provided.
+
+\paragraph{Indicators}
+
+\begin{itemize}
+    \item \textbf{KPI}: Number of issues per day. (Maximum 100 reports of issues)
+    \item \textbf{KRI}: Ratio of solved issues per month. (At least 70 \% solved issues)
+\end{itemize}
+
+\paragraph{Roles}
+
+\begin{itemize}
+    \item \textbf{Customer} - Submits a ticket, communicates his/her problem, receives notifications.
+    \item \textbf{System} - Receives tickets, registers issues, performs automatic assessments (eliminates invalid tickets etc.).
+    \item \textbf{Support Worker} - Reviews customer's problem, communicates with customers, finds a solution and handles problem.
+    \item \textbf{Support Manager} - Gives advice to support worker and handles the issue if circumstances require it (support worker for whatever reason isn't capable of doing it).
+\end{itemize}
+
+\paragraph{Data objects}
+
+\begin{itemize}
+    \item \textbf{Issue store} - All customer complaints and issues are stored in the system.
+\end{itemize}
+
+\newpage
+
+\includepdf[landscape=true]{customer_support.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
