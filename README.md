@@ -29,7 +29,7 @@ OR
 3. Add space by clicking on `Add space`, filling in name and clicking on `Add`.
 4. Open your new space.
 5. Import project by clicking on `Import project`, filling in URL [https://github.com/binczech/PV207-BPM-HWs](https://github.com/binczech/PV207-BPM-HWs) of this repository and clicking on `Import`.
-6. Click on `DeliveryProject` and click on `OK`.
+6. Click on `FoodPackProject` and click on `OK`.
 7. Open `FoodPackProject`.
 8. Click on `Setting` -> `ServiceTasks` -> and install Email and Rest. In popup windows click on `Install` without filling anything.
 9. Click on `Assets` and click on `Deploy`.
