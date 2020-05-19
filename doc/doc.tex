@@ -594,25 +594,31 @@ Once a product or an idea is developed it has to reach the audience. Every recip
 
 \section{Implementation}
 
-[text]
+Project can be imported from \url{https://github.com/binczech/PV207-BPM}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Used platform and software}
 
-[text]
+\begin{itemize}
+    \item \textbf{jBPM 7.36.0.Final} - This tool was chosen because it was the only tool that had been presented on lectures. Also there was support provided by teachers for this tool. We chose version 7.36.0.Final because it was the latest version at that time. We also didn't switch to version 7.37.0.Final afterwards because there were many bugs reported by students or other users for this version.\footnote{jBPM 7.36.0.Final can be downloaded from \url{https://download.jboss.org/jbpm/release/7.36.0.Final/jbpm-server-7.36.0.Final-dist.zip}.}
+    \item \textbf{Beeceptor} - This tool was used for mocking REST API. Receiving emails from third parties, working with database or sending end event message were mocked using this service.
+    \item \textbf{Gmail} - For sending email from email work item handler was used Gmail.
+    \item \textbf{Git}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Implemented services}
 
-[text]
-
 \begin{enumerate}
-    \item Service name
-    \begin{itemize}
-        \item text
-    \end{itemize}
+    \item \textbf{Email communication}\\
+    This service is used for communicating with third parties and with other departments of our company. Email Work Item Handler sends email via Gmail account to addressee. Receiving of emails is mocked by REST Work Item Handler.
+    \item \textbf{Database handling}\\
+    This service is used for reading data from database and for storing data to database. It is mocked by REST Work Item Handler.
+    \item \textbf{User feedback gathering}\\
+    This service gathers and parses feedback about their experience with recipes from users. It is mocked by REST Work Item Handler.
+    
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -620,17 +626,55 @@ Once a product or an idea is developed it has to reach the audience. Every recip
 \subsection{Implemented processes}
 
 \begin{enumerate}
-    \item Process name
-    \begin{itemize}
-        \item text
-    \end{itemize}
+    \item \textbf{Create new recipe}\\
+    This process is implemented to start 3 instances after deployment. It starts with timer that is set to 5 minutes for testing purposes. After that in every instance there are two parallel branches. On the first there is service to receive gathered and parsed user feedback. It is received from REST API endpoint. Since REST API is mocked there is the same response every time. On the second branch there are 3 user tasks with full forms where user fills data about trends in cooking. Then both branches are merged and idea for recipe is proposed in another user task. Idea is sent to chef by email. Email is sent to address filled in during proposing of recipe. Next two tasks are mocked by REST API. In the first one chef sends back prototype of recipe (same every time) and the prototype is saved in the second task to database. In embedded subprocess were both reusable subprocesses replaced by user tasks for implementation. User just ticks checkbox in both tasks if evaluating or testing was successful. In success flow the end message event was replaced by subprocess which calls process "Preparation of recipe materials" and provides created recipe to it. In failure flow script task simulates generating report by printing out static text and message end event is replaced by email task and end event. 
+    \item \textbf{Preparation of recipe materials}\\
+    Message start event was replaced by start event and this process is called as a subprocess from process "Create new recipe". If this process is called as a subprocess it receives created recipe from calling process. If it's not subprocess, user has to fill a new recipe to form at start of this process. After start there are two parallel branches. In the first, request in email is sent to chef with new recipe. Then chef notifies back by email that meal is ready, this is mocked by REST API. Then there are 4 user tasks together in both branches where users fill full or short forms. After that both branches are merged and system stores edited recipe and checks ingredients status in database. Both these tasks are mocked by REST API which returns same response every time. At the end recipe is published by changing information in database which is mocked by REST API or system is informed by email that some ingredients are missing. Message end event is replaced by email task and end event.
+    \item \textbf{Route planning}\\
+    After start of the process information about drivers and distribution centers are loaded from database which is mocked by REST API. User then checks in form loaded data. Based on user's decision, communication part with Human Resources can be skipped. In this communication part, message intermediate events are replaced by signal intermediate events for implementation. Signal is caught by dummy process "Find new drivers" which throws signal back after time that user defined in this dummy process. If it is not before timer is up the process ends. The timer is set to 2 minutes for testing purposes. In the other case process continues with 3 user tasks where user fills 3 full forms. These 3 user tasks can repeat multiple times till CEO user approves. After that data are stored to database which is mocked by REST API. Message end event is replaced by email task, which notifies drivers, and end event. Sending email is implemented as sending only 1 email to main email of this implementation.
+    \item \textbf{Find new drivers}\\
+    This is dummy process which is used in process "Route planning". It has purpose to simulate searching new drivers. After catching signal it allows user to decide how long will it take to find new drivers. User can set timer up to 120 seconds on slider. After that script task converts seconds in integer to ISO-8601 format for timer. Signal is thrown back to process "Route planning" after the timer is up.
+    \item \textbf{Order processing}\\
+    The process contains basic order validation, ingredient control and packing. Timers are decreased to 1 minute on the first timer and to 2 minutes on the second timer for implementation. Two embedded processes are present. First describes handling of the order itself that is constrained by a time limit. The other one shows the packing. Three tasks are mocked by an API. First one confirms the payment for the order. Second one returns list of ingredients for the specific order. The last one requests a delivery car. Customer receives an e-mail notification in cases when the procurement of the order has been cancelled or when the delivery is likely to be delayed.
+    
+    The embedded packing process may be prone to issues (related to ingredients) which have to be handled. If the resolving of the issue takes way too much time, depending on the accumulated ingredients, the freshness of the ingredients is put to a test in a business rule task upon which a level of health hazard is determined. Based on this hazard value, a part of the ingredients may be either donated to a food bank or in critical cases completely disposed of. 
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Screenshots}
 
-[3-5 important screenshots from testing of the implementation]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{testing1.png}
+    \caption{Process instance diagram of "Order processing" process.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{testing5.png}
+    \caption{Form of "Create new recipe" process.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{testing2.png}
+    \caption{Form of "Prepare recipe materials" process.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{testing3.png}
+    \caption{Form of "Route planning" process.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{testing4.png}
+    \caption{Process instance diagram of "Create new recipe" process.}
+\end{figure}
+
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -639,25 +683,41 @@ Once a product or an idea is developed it has to reach the audience. Every recip
 \subsection{Tadeáš Pavlík (Teamleader)}
 
 \begin{itemize}
-    \item task 1
+    \item Organising the teamwork and managing deadlines
+    \item Documentation maintenance
+    \item Defined goal, objectives and indicators
+    \item Modelled processes in Signavio
+    \item Implemented processes
 \end{itemize}
 
 \subsection{Jiří Čechák (Business analyst)}
 
 \begin{itemize}
-    \item task 1
+    \item Documentation writing
+    \item Defined the mission
+    \item Defined goal, objectives and indicators
+    \item Modelled processes in Signavio
+    \item Tested and debugged implementation of processes
 \end{itemize}
 
 \subsection{Tomáš Došlík (Process analyst)}
 
 \begin{itemize}
-    \item task 1
+    \item Documentation writing
+    \item Defined the mission
+    \item Defined goal, objectives and indicators
+    \item Modelled processes in Signavio
+    \item Tested and debugged implementation of processes
 \end{itemize}
 
 \subsection{Václav Stehlík (BPM/SOA developer)}
 
 \begin{itemize}
-    \item task 1
+    \item Documentation writing
+    \item Defined the context
+    \item Defined goal, objectives and indicators
+    \item Modelled processes in Signavio
+    \item Implemented processes
 \end{itemize}
 
 \end{document}
