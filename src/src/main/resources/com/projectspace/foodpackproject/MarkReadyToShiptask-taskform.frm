@@ -1,0 +1,1 @@
+{"id":"52c3fc38-0c30-4eb0-a9f1-008241e77352","name":"MarkReadyToShiptask-taskform.frm","model":{"taskName":"MarkReadyToShiptask","processId":"FoodPackProject.OrderProcessing","properties":[],"formModelType":"org.kie.workbench.common.forms.jbpm.model.authoring.task.TaskFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}

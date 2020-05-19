@@ -1,0 +1,1 @@
+{"id":"92ed1681-6905-4bf4-add5-0fe34169e3c9","name":"GetAppropriateBoxTask-taskform.frm","model":{"taskName":"GetAppropriateBoxTask","processId":"FoodPackProject.OrderProcessing","properties":[],"formModelType":"org.kie.workbench.common.forms.jbpm.model.authoring.task.TaskFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}

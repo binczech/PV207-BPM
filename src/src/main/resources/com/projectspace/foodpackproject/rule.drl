@@ -1,0 +1,33 @@
+package com.projectspace.foodpackproject;
+
+import com.projectspace.foodpackproject.OrderIngredientsResponse
+import com.projectspace.foodpackproject.Ingredient
+import com.projectspace.foodpackproject.IngredientValidationError
+
+import java.util.List;
+
+function boolean checkFreshnessIssue(OrderIngredientsResponse $response) {
+    List<Ingredient> ingredients = $response.getIngredients();
+    boolean issue = false;
+    
+    for (Ingredient item : ingredients) {
+        if (item.getFreshness_limit() > 2) {
+            issue = true;
+        }
+    }
+    
+    return issue;
+}
+
+rule "Fresh food validation"
+ruleflow-group "fresh-food-validation"
+no-loop
+
+when
+    $ingredients : OrderIngredientsResponse()
+    $ingredientsError : IngredientValidationError()
+    eval(checkFreshnessIssue($ingredients) == true);
+then
+    $ingredientsError.setValid(false);
+    update($ingredientsError);
+end

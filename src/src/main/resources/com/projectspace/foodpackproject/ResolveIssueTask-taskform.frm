@@ -1,0 +1,1 @@
+{"id":"d1f862d8-96e4-4f0e-ae92-0787d34c06c2","name":"ResolveIssueTask-taskform.frm","model":{"taskName":"ResolveIssueTask","processId":"FoodPackProject.OrderProcessing","properties":[],"formModelType":"org.kie.workbench.common.forms.jbpm.model.authoring.task.TaskFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}

@@ -1,0 +1,1 @@
+{"id":"4d443758-bdb2-40a9-b018-7068c8165463","name":"CancelProcurementTask-taskform.frm","model":{"taskName":"CancelProcurementTask","processId":"FoodPackProject.OrderProcessing","properties":[],"formModelType":"org.kie.workbench.common.forms.jbpm.model.authoring.task.TaskFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}
